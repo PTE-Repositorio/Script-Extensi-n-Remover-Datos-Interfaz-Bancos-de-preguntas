@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Remover Nodos de Bancos de preguntas",
+  "version": "1.0",
+  "description": "Permite remover datos de la interfaz de bancos",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+    
+  }
+}
