@@ -9,58 +9,85 @@
       background: #f9fafc;
       margin: 0;
       padding: 15px;
-      width: 250px;
+      width: 280px;
       text-align: center;
+      color: #1f3b57;
     }
 
     h1 {
-      font-size: 16px;
-      color: #1f3b57;
-      margin-bottom: 20px;
+      font-size: 15px;
+      margin-bottom: 15px;
     }
 
-    button {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 14px;
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      font-size: 13px;
       font-weight: bold;
       color: #fff;
       background: #4a90e2;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.1s ease;
     }
 
-    button:hover {
+    .btn:hover {
       background: #357abd;
     }
 
-    button:active {
+    .btn:active {
+      transform: scale(0.97);
       background: #285a8e;
     }
 
-    .footer {
-      margin-top: 20px;
+    .btn-danger {
+      background: #c61111 !important;
+    }
+
+    .btn-danger:hover {
+      background: #a50e0e !important;
+    }
+
+    .section-title {
       font-size: 12px;
+      margin-top: 15px;
+      margin-bottom: 5px;
       color: #666;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 3px;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Script Limpiar DOM Bancos</h1>
-  <button id="runScript">Click Abrir Pregunta</button>
-<hr>
-  <button id="runScript_2">Click Barrido Principal</button>
- <hr>
- <button id="runScript_3">Borrar Header Comentarios Respuestas</button>
-<hr>
-  <button id="runScript_4">Borrar Header Comentarios x Pregunta</button>
+  <h1>Extensión de ayuda<br>para cuestionarios</h1>
+
+  <div class="section">
+    <div class="section-title">Acciones rápidas</div>
+    <button id="runScript" class="btn">Abrir Preguntas</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Limpieza</div>
+    <button id="runScript_3" class="btn">Borrar Header Comentarios Respuestas</button>
+    <button id="runScript_4" class="btn">Borrar Header Comentarios x Pregunta</button>
+     <button id="runScript_2" class="btn btn-danger">Barrido Principal</button>
+ </div>
 
   <div class="footer">
-    <p>Extensión de ayuda para cuestionarios</p>
+    <p>© Extensión de apoyo – Bancos de preguntas</p>
   </div>
 
   <script src="popup.js"></script>
 </body>
 </html>
+
