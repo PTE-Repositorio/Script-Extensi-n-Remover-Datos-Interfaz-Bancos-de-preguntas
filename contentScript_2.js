@@ -69,6 +69,13 @@
             nodos_11.forEach(n => n.remove());
             console.log(`✅ Eliminados ${nodos_11.length} bloques`);}
 
+       const question_actions = document.querySelectorAll(".question_actions");
+        if (question_actions.length > 0) {
+            question_actions.forEach(n => n.remove());
+            console.log(`✅ Eliminados ${question_actions.length} bloques`);}
+ 
+
+
    //darle tamaño a los input de las respuestas
             
 
