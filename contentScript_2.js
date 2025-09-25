@@ -110,8 +110,9 @@ try {
 } catch (e) { console.error("❌ Error ajustando ancho de inputs", e); }
 
 //doble click al 
-const elem = document.querySelectorAll(".edit_html");
 try {
+    const elem = document.querySelectorAll(".edit_html");
+
 if (elem) {
     // Primer clic
     elem.click();
