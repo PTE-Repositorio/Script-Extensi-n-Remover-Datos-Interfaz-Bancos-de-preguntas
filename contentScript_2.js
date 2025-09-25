@@ -101,3 +101,17 @@ if (elem) {
         console.log("✅ Simulado doble barrido en .edit_html");
     }, 500);
 }
+
+//borrar porcentaje que aparece
+try {
+  const nodos = document.querySelectorAll(".answer_select");
+  if (nodos.length > 0) {
+    nodos.forEach(n => n.remove());
+    console.log(`✅ Eliminados ${nodos.length} nodos con .answer_select`);
+  } else {
+    console.log("⚠️ No se encontraron nodos con .answer_select");
+  }
+} catch (error) {
+  console.error("❌ Error al intentar eliminar los nodos:", error);
+}
+
