@@ -69,7 +69,14 @@
             nodos_11.forEach(n => n.remove());
             console.log(`✅ Eliminados ${nodos_11.length} bloques`);}
 
-    
+           //quitar barra izquierda transparente
+       const right_side_wrapper = document.getElementById("right-side-wrapper");
+       if (right_side_wrapper) {
+           right_side_wrapper.remove();           // opcional: lo marca como seleccionado
+          console.log("✅ Eliminado right_side_wrapper");
+            } else {
+           console.log("⚠️ No se encontró el elemento con ID right_side_wrapper");
+                 }
 
 
    //darle tamaño a los input de las respuestas
