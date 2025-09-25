@@ -88,3 +88,16 @@
             console.log(`✅ Width ajustado input ${nodos_12.length} bloques`);}
 
   
+//doble click al 
+const elem = document.querySelectorAll(".edit_html");
+
+if (elem) {
+    // Primer clic
+    elem.click();
+
+    // Segundo clic (medio segundo después)
+    setTimeout(() => {
+        elem.click();
+        console.log("✅ Simulado doble barrido en .edit_html");
+    }, 500);
+}
