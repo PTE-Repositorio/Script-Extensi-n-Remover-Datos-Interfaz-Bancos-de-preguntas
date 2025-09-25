@@ -77,7 +77,7 @@
 
      const nodos_12 = document.querySelectorAll(".disabled_answer");
         if (nodos_12.length > 0) {
-            nodos_12.forEach(n => n.style.width = "1000px");
+            nodos_12.forEach(n => n.style.width = "1100px");
             console.log(`✅ Width ajustado input ${nodos_12.length} bloques`);}
 
   
