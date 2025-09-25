@@ -122,7 +122,7 @@ if (elem) {
         console.log("✅ Simulado doble barrido en .edit_html");
     }, 500);
 }} catch (error) {
-  console.error("❌ Error al intentar clickear los nodos:", error);
+  console.error("❌ Error al intentar clickear los edit:", error);
 }
 
 //borrar porcentaje que aparece
