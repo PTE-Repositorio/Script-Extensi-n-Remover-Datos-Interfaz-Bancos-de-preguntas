@@ -145,3 +145,14 @@ try {
   console.error("❌ Error al intentar eliminar los nodos:", error);
 }
 
+//marcar respuesta correctas 
+try {
+const xpath = "//label[normalize-space(text())='Respuesta correcta']";
+const result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+for (let i = 0; i < result.snapshotLength; i++) {
+  const nodo = result.snapshotItem(i);
+  nodo.textContent = nodo.textContent.trim() + " ✅";  // 👈 concatena al final
+}} catch (error) {
+  console.error("❌ Error al intentar marcar las respuestas correctas:", error);
+}
