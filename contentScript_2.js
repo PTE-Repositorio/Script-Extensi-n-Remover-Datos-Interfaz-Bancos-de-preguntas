@@ -111,19 +111,25 @@ try {
 
 //doble click al 
 try {
-    const elem = document.querySelectorAll(".edit_html");
+    const elems = document.querySelectorAll(".edit_html");
 
-if (elem) {
-    // Primer clic
-    elem.click();
+    if (elems.length > 0) {
+        // Iteramos sobre todos los elementos encontrados
+        elems.forEach(elem => {
+            // Primer clic
+            elem.click();
 
-    // Segundo clic (medio segundo después)
-    setTimeout(() => {
-        elem.click();
-        console.log("✅ Simulado doble barrido en .edit_html");
-    }, 500);
-}} catch (error) {
-  console.error("❌ Error al intentar clickear los edit:", error);
+            // Segundo clic (medio segundo después)
+            setTimeout(() => {
+                elem.click();
+                console.log("✅ Simulado doble barrido en .edit_html");
+            }, 500);
+        });
+    } else {
+        console.warn("⚠️ No se encontraron elementos con la clase .edit_html");
+    }
+} catch (error) {
+    console.error("❌ Error al intentar clickear los edit:", error);
 }
 
 //borrar porcentaje que aparece
