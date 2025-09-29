@@ -132,18 +132,41 @@ try {
     console.error("❌ Error al intentar clickear los edit:", error);
 }
 
+
 //borrar porcentaje que aparece
 try {
   const nodos = document.querySelectorAll(".answer_select");
+
   if (nodos.length > 0) {
-    nodos.forEach(n => n.remove());
-    console.log(`✅ Eliminados ${nodos.length} nodos con .answer_select`);
+    nodos.forEach(n => {
+      if (n instanceof HTMLElement) {
+        const nodo_resp_correct = n.querySelector("img[alt='Esta respuesta está establecida como correcta']");
+
+        if (nodo_resp_correct) {
+            n.style.width="50px";
+          // Reemplazar la imagen con un div de texto ✅
+          const div = document.createElement("div");
+          div.textContent = "✅ Correcta";
+          div.style.fontWeight = "bold";
+          div.style.color = "green";
+
+          nodo_resp_correct.replaceWith(div);
+        } else {
+          // Si no tiene el ícono, eliminar el bloque entero
+          n.remove();
+          console.log("🗑️ Nodo .answer_select eliminado");
+        }
+      }
+    });
+
+    console.log(`✅ Procesados ${nodos.length} nodos con .answer_select`);
   } else {
     console.log("⚠️ No se encontraron nodos con .answer_select");
   }
 } catch (error) {
-  console.error("❌ Error al intentar eliminar los nodos:", error);
+  console.error("❌ Error al intentar procesar los nodos:", error);
 }
+
 
 //marcar respuesta correctas 
 try {
