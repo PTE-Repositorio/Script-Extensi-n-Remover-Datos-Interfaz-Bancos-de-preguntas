@@ -100,7 +100,7 @@ try {
 } catch (e) { console.error("❌ Error eliminando right_side_wrapper", e); }
 
 //darle tamaño a los input de las respuestas
-            
+
 try {
     const nodos_12 = document.querySelectorAll(".disabled_answer");
     if (nodos_12.length > 0) {
@@ -135,47 +135,63 @@ try {
 
 //borrar porcentaje que aparece
 try {
-  const nodos = document.querySelectorAll(".answer_select");
+    const nodos = document.querySelectorAll(".answer_select");
 
-  if (nodos.length > 0) {
-    nodos.forEach(n => {
-      if (n instanceof HTMLElement) {
-        const nodo_resp_correct = n.querySelector("img[alt='Esta respuesta está establecida como correcta']");
+    if (nodos.length > 0) {
+        nodos.forEach(n => {
+            if (n instanceof HTMLElement) {
+                // 🔹 Eliminar el bloque .answer_weight si existe
+                try {
+                    const peso = n.querySelector(".answer_weight");
+                    if (peso) {
+                        peso.remove();
+                        console.log("🗑️ Eliminado .answer_weight");
+                    }
+                } catch (error) {
+                    console.error("❌ Error al intentar procesar los nodos :", error);
+                }
 
-        if (nodo_resp_correct) {
-            n.style.width="60px";
-          // Reemplazar la imagen con un div de texto ✅
-          const div = document.createElement("div");
-          div.textContent = "✅ Correcta";
-          div.style.fontWeight = "bold";
-          div.style.color = "green";
 
-          nodo_resp_correct.replaceWith(div);
-        } else {
-          // Si no tiene el ícono, eliminar el bloque entero
-          n.remove();
-          console.log("🗑️ Nodo .answer_select eliminado");
-        }
-      }
-    });
+                // 🔹 Buscar si tiene la marca de respuesta correcta
+                const nodo_resp_correct = n.querySelector("img[alt='Esta respuesta está establecida como correcta']");
 
-    console.log(`✅ Procesados ${nodos.length} nodos con .answer_select`);
-  } else {
-    console.log("⚠️ No se encontraron nodos con .answer_select");
-  }
+                if (nodo_resp_correct) {
+                    n.style.width = "30px";
+
+                    // Reemplazar la imagen con un div de texto ✅
+                    const div = document.createElement("div");
+                    div.textContent = "✅";
+                    div.style.fontWeight = "bold";
+                    div.style.color = "green";
+
+                    nodo_resp_correct.replaceWith(div);
+                    console.log("✔️ Reemplazado ícono por ✅");
+                } else {
+                    // Si no tiene el ícono, eliminar el bloque entero
+                    n.remove();
+                    console.log("🗑️ Nodo .answer_select eliminado");
+                }
+            }
+        });
+
+        console.log(`✅ Procesados ${nodos.length} nodos con .answer_select`);
+    } else {
+        console.log("⚠️ No se encontraron nodos con .answer_select");
+    }
 } catch (error) {
-  console.error("❌ Error al intentar procesar los nodos:", error);
+    console.error("❌ Error al intentar procesar los nodos:", error);
 }
 
 
 //marcar respuesta correctas 
 try {
-const xpath = "//label[normalize-space(text())='Respuesta correcta']";
-const result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const xpath = "//label[normalize-space(text())='Respuesta correcta']";
+    const result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
-for (let i = 0; i < result.snapshotLength; i++) {
-  const nodo = result.snapshotItem(i);
-  nodo.textContent = nodo.textContent.trim() + " ✅";  // 👈 concatena al final
-}} catch (error) {
-  console.error("❌ Error al intentar marcar las respuestas correctas:", error);
+    for (let i = 0; i < result.snapshotLength; i++) {
+        const nodo = result.snapshotItem(i);
+        nodo.textContent = nodo.textContent.trim() + " ✅";  // 👈 concatena al final
+    }
+} catch (error) {
+    console.error("❌ Error al intentar marcar las respuestas correctas:", error);
 }
