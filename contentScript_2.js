@@ -143,7 +143,7 @@ try {
         const nodo_resp_correct = n.querySelector("img[alt='Esta respuesta está establecida como correcta']");
 
         if (nodo_resp_correct) {
-            n.style.width="50px";
+            n.style.width="60px";
           // Reemplazar la imagen con un div de texto ✅
           const div = document.createElement("div");
           div.textContent = "✅ Correcta";
